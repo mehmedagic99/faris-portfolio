@@ -140,7 +140,6 @@ export default function Home() {
 <nav className="site-nav relative sticky top-0 z-50 border-b border-white/[0.07] bg-[#08090c]/85 backdrop-blur-2xl">
   <div className="nav-inner mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 md:px-10">
     <a href="#top" className="wordmark shrink-0" aria-label="FARISM home" onClick={() => setIsMenuOpen(false)}>
-      <Image src="/brand-mark.svg" alt="" width={30} height={30} className="wordmark-mark" priority />
       <span className="wordmark-text">FARIS<span className="wordmark-m">M</span></span>
     </a>
     <div className="hidden items-center gap-7 md:flex">
@@ -168,7 +167,7 @@ export default function Home() {
 
       
 
-<section className="relative isolate flex min-h-[680px] items-center justify-center overflow-hidden bg-[#080808] px-5 py-24 md:min-h-[760px]">
+<section className="hero-section relative isolate flex items-center justify-center overflow-hidden bg-[#080808] px-5 py-24">
   {/* Animated thumbnail background */}
   <div
     className="pointer-events-none absolute inset-0 overflow-hidden"
@@ -227,13 +226,13 @@ export default function Home() {
     
 
 <h1 className="mx-auto w-full max-w-5xl text-center text-4xl font-black leading-[1.04] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-  <span className="block">MAKE THE FIRST LOOK</span>
-  <span className="block"><span style={{ color: "#3B82F6" }}>COUNT.</span></span>
+  <span className="block">THUMBNAILS THAT GET</span>
+  <span className="block"><span style={{ color: "#3B82F6" }}>CLICKS</span></span>
 </h1>
 
 
     <p className="mx-auto mt-7 max-w-2xl text-sm leading-7 text-neutral-300 sm:text-base">
-      Your video deserves more than a thumbnail people scroll past. I design custom visuals built around your idea, audience, and channel, so the value of your video is clear before anyone presses play.
+      Custom YouTube thumbnails designed for your content, your audience, and your channel. Try my work with one completely free thumbnail, with no payment or commitment.
     </p>
 
     <a

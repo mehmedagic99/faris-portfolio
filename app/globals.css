@@ -516,8 +516,8 @@ footer > div:first-child > button:hover { background: #3678ef; }
 }
 .site-nav .wordmark .wordmark-mark {
   display: block;
-  width: 29px;
-  height: 29px;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
   flex: 0 0 auto;
 }
@@ -536,23 +536,36 @@ footer > div:first-child > button:hover { background: #3678ef; }
 .site-nav .wordmark:hover { color: #fff; }
 .site-nav .wordmark:hover .wordmark-text { color: #fff; }
 
-/* Keep the five hero marquee rows spread across the full hero height. */
+/* Five hero rows use the same spacing horizontally and vertically. */
+.hero-section {
+  min-height: clamp(650px, 44vw, 860px);
+}
 .hero-marquee {
-  justify-content: space-between;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  --hero-tile-gap: clamp(12px, 1.25vw, 24px);
+  justify-content: flex-start;
+  gap: var(--hero-tile-gap);
+  padding-top: var(--hero-tile-gap);
+  padding-bottom: var(--hero-tile-gap);
+  box-sizing: border-box;
 }
 .hero-marquee-track {
   flex: 0 0 auto;
+  gap: var(--hero-tile-gap);
 }
 .hero-thumbnail-card {
-  width: 230px;
+  width: clamp(170px, 22.8vh, 246px);
+  border-radius: 12px;
 }
-@media (min-width: 1280px) {
-  .hero-thumbnail-card { width: 250px; }
+@media (max-width: 900px) {
+  .hero-section { min-height: 700px; }
+  .hero-marquee { --hero-tile-gap: 14px; }
+  .hero-thumbnail-card { width: clamp(160px, 22vh, 210px); }
 }
 @media (max-width: 640px) {
-  .hero-thumbnail-card { width: 180px; }
+  .hero-section { min-height: 680px; }
+  .hero-marquee { --hero-tile-gap: 10px; }
+  .hero-thumbnail-card { width: 170px; border-radius: 9px; }
+  .site-nav .wordmark .wordmark-mark { width: 36px; height: 36px; }
 }
 
 /* Carousel controls have a consistent, optically centered arrow. */
@@ -564,4 +577,32 @@ footer > div:first-child > button:hover { background: #3678ef; }
   line-height: 1;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+}
+
+
+/* Final hero and wordmark refinements */
+.site-nav .wordmark {
+  display: inline-flex;
+  align-items: center;
+  font-size: clamp(1.85rem, 2vw, 2.1rem);
+  letter-spacing: -0.075em;
+  line-height: 1;
+}
+.site-nav .wordmark .wordmark-text {
+  font-size: inherit;
+}
+.site-nav .wordmark .wordmark-m {
+  font-size: inherit;
+}
+
+/* Use evenly distributed vertical space for all five hero rows,
+   including the space above the first and below the last row. */
+.hero-marquee {
+  justify-content: space-evenly;
+  gap: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.hero-marquee-track {
+  flex: 0 0 auto;
 }
