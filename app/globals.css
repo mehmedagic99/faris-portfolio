@@ -500,3 +500,68 @@ footer > div:first-child > button:hover { background: #3678ef; }
 @media (prefers-reduced-motion: reduce) {
   .client-marquee-track, .testimonial-marquee-track { animation: none !important; }
 }
+
+
+/* FARISM brand mark and wordmark */
+.site-nav .wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #fff;
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: -0.075em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.site-nav .wordmark .wordmark-mark {
+  display: block;
+  width: 29px;
+  height: 29px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+.site-nav .wordmark .wordmark-text {
+  margin: 0;
+  color: #fff;
+  font-size: inherit;
+  line-height: 1;
+}
+.site-nav .wordmark .wordmark-m {
+  margin: 0;
+  color: #3B82F6;
+  font-size: inherit;
+  vertical-align: baseline;
+}
+.site-nav .wordmark:hover { color: #fff; }
+.site-nav .wordmark:hover .wordmark-text { color: #fff; }
+
+/* Keep the five hero marquee rows spread across the full hero height. */
+.hero-marquee {
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.hero-marquee-track {
+  flex: 0 0 auto;
+}
+.hero-thumbnail-card {
+  width: 230px;
+}
+@media (min-width: 1280px) {
+  .hero-thumbnail-card { width: 250px; }
+}
+@media (max-width: 640px) {
+  .hero-thumbnail-card { width: 180px; }
+}
+
+/* Carousel controls have a consistent, optically centered arrow. */
+.work-carousel-row > div:nth-child(2) > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}

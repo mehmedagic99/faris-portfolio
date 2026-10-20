@@ -67,7 +67,7 @@ const projectsByCategory: Record<WorkCategory, Project[]> = Object.fromEntries(
     const slots = Array.from({ length: 12 }, (_, index) => {
       const existing = realProjects[index];
       return existing ?? {
-        title: `${category} ${String(index + 1).padStart(2, "0")} — add thumbnail`,
+        title: `${category} ${String(index + 1).padStart(2, "0")}, add thumbnail`,
         category,
         image: "",
         number: `${category}-${String(index + 1).padStart(2, "0")}`,
@@ -105,7 +105,7 @@ export default function Home() {
     const category = categories[row];
     const categoryProjects = projectsByCategory[category];
     setRowIndexes((current) => current.map((index, i) =>
-      i === row ? (index + direction + categoryProjects.length) % categoryProjects.length : index
+      i === row ? (index + direction * 3 + categoryProjects.length) % categoryProjects.length : index
     ));
   };
   const chooseFilter = (category: string) => {
@@ -139,8 +139,9 @@ export default function Home() {
       
 <nav className="site-nav relative sticky top-0 z-50 border-b border-white/[0.07] bg-[#08090c]/85 backdrop-blur-2xl">
   <div className="nav-inner mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 md:px-10">
-    <a href="#top" className="wordmark shrink-0" aria-label="Faris — home" onClick={() => setIsMenuOpen(false)}>
-      FARIS<span aria-hidden="true">®</span>
+    <a href="#top" className="wordmark shrink-0" aria-label="FARISM home" onClick={() => setIsMenuOpen(false)}>
+      <Image src="/brand-mark.svg" alt="" width={30} height={30} className="wordmark-mark" priority />
+      <span className="wordmark-text">FARIS<span className="wordmark-m">M</span></span>
     </a>
     <div className="hidden items-center gap-7 md:flex">
       <a href="#work" className="nav-link">Selected work</a>
@@ -173,8 +174,8 @@ export default function Home() {
     className="pointer-events-none absolute inset-0 overflow-hidden"
     aria-hidden="true"
   >
-    <div className="hero-marquee absolute inset-0 flex flex-col justify-center gap-3">
-      {[0, 1, 2].map((row) => (
+    <div className="hero-marquee absolute inset-0 flex flex-col justify-between gap-2 py-2 sm:gap-3 sm:py-3">
+      {[0, 1, 2, 3, 4].map((row) => (
         <div
           key={row}
           className={`hero-marquee-track flex w-max gap-3 ${
@@ -194,7 +195,7 @@ export default function Home() {
             ].map((src, index) => (
               <div
                 key={`${repeat}-${index}`}
-                className="hero-thumbnail-card relative aspect-video w-[220px] shrink-0 overflow-hidden rounded-lg border border-white/10 sm:w-[260px] md:w-[300px]"
+                className="hero-thumbnail-card relative aspect-video w-[190px] shrink-0 overflow-hidden rounded-lg border border-white/10 sm:w-[230px] md:w-[260px] lg:w-[290px]"
               >
                 <Image
                   src={src}
@@ -232,7 +233,7 @@ export default function Home() {
 
 
     <p className="mx-auto mt-7 max-w-2xl text-sm leading-7 text-neutral-300 sm:text-base">
-      Your video deserves more than a thumbnail people scroll past. I design custom visuals built around your idea, audience, and channel — so the value of your video is clear before anyone presses play.
+      Your video deserves more than a thumbnail people scroll past. I design custom visuals built around your idea, audience, and channel, so the value of your video is clear before anyone presses play.
     </p>
 
     <a
@@ -257,7 +258,7 @@ export default function Home() {
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#60A5FA]">Selected work</p>
             <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Designed to win the first second.</h2>
-            <p className="mt-3 max-w-xl text-sm leading-6 text-neutral-400">Different channels need different visual languages. Explore cinematic, gaming, podcast, and other thumbnail styles — each made for the story behind the video.</p>
+            <p className="mt-3 max-w-xl text-sm leading-6 text-neutral-400">Different channels need different visual languages. Explore cinematic, gaming, podcast, and other thumbnail styles, each made for the story behind the video.</p>
           </div>
           <div className="flex flex-wrap gap-2">
             {filterOptions.map((category) => (
@@ -330,7 +331,7 @@ export default function Home() {
               <div>
                 <h3 className="text-lg font-semibold text-white md:text-xl">About Me</h3>
                 <p className="mt-3 text-base leading-7 text-neutral-400">
-                  I’m Faris Mehmedagić, a graphic designer from Bosnia and Herzegovina with 6+ years of experience and 700+ completed projects. I specialise in YouTube thumbnails that make the concept instantly clear, create visual curiosity, and feel right for your channel — never like a recycled template.
+                  I’m Faris Mehmedagić, a graphic designer from Bosnia and Herzegovina with 6+ years of experience and 700+ completed projects. I specialise in YouTube thumbnails that make the concept instantly clear, create visual curiosity, and feel right for your channel, never like a recycled template.
                 </p>
               </div>
               <div>
@@ -382,7 +383,7 @@ export default function Home() {
             <p className="mx-auto mb-9 max-w-xl text-center text-sm leading-6 text-neutral-500">A selection of creator collaborations across travel, adventure, gaming, and entertainment.</p>
           </div>
           <div className="client-marquee-viewport" aria-label="YouTube creator channels"><div className="client-marquee-track">{[0, 1].map((copy) => <div className="client-marquee-group" key={copy} aria-hidden={copy === 1}>{[
-            { name: "Jim Baird – Adventurer", image: "/Images/clients/creator-01.webp", detail: "250K Subscribers", category: "Outdoor adventure" },
+            { name: "Jim Baird - Adventurer", image: "/Images/clients/creator-01.webp", detail: "250K Subscribers", category: "Outdoor adventure" },
             { name: "Part-Time Explorer", image: "/Images/clients/creator-02.webp", detail: "500K Subscribers", category: "Travel / exploration" },
             { name: "Ryan Pyle", image: "/Images/clients/creator-03.webp", detail: "32K Subscribers", category: "Adventure / travel" },
             { name: "DreadWick", image: "/Images/clients/creator-04.webp", detail: "12K Subscribers", category: "Gaming / entertainment" },
@@ -406,14 +407,14 @@ export default function Home() {
               <div className="testimonial-marquee-track">
                 {[0, 1].map((copy) => <div className="testimonial-marquee-group" key={copy} aria-hidden={copy === 1}>
                   {[
-                    { quote: "very talented, I didnt have the highest quality footage to provide but he did an excellent job and I felt given the content im producing it fits the project, looking forward to working with this professional.", author: "Jim Baird – Adventurer", image: "/Images/clients/creator-01.webp", detail: "Outdoor adventure" },
+                    { quote: "very talented, I didnt have the highest quality footage to provide but he did an excellent job and I felt given the content im producing it fits the project, looking forward to working with this professional.", author: "Jim Baird - Adventurer", image: "/Images/clients/creator-01.webp", detail: "Outdoor adventure" },
                     { quote: "Great asset and deliverables. He has a deep understanding of social media and quality of work.", author: "Part-Time Explorer", image: "/Images/clients/creator-02.webp", detail: "Travel / exploration" },
                     { quote: "Did exactly what I asked him to do, but also gave great input and would ask throughout the process if I approved. Really good work and took any of my changes in stride. Would recommend..", author: "Ryan Pyle", image: "/Images/clients/creator-03.webp", detail: "Adventure / travel" },
                     { quote: "The visuals feel energetic and tailored to the content instead of looking like a generic template.", author: "DreadWick", image: "/Images/clients/creator-04.webp", detail: "Gaming / entertainment" },
                     { quote: "Very talented, I didnt have the highest quality footage to provide but he did an excellent job and I felt given the content im producing it fits the project, looking forward to working with this professional.", author: "Tropical Paradox", image: "/Images/clients/creator-05.webp", detail: "Gaming / animation" },
                     { quote: "Amazing work! Very quick turnaround and the vision is always executed better than expected! Highly recommend.", author: "Western Obsessions TV", image: "/Images/clients/creator-06.webp", detail: "Outdoors / lifestyle" },
                     { quote: "Faris did an excellent job with the image! The communication was fast and on point. Delivery was the same day and he went above and beyond for this project. I will be working with him in the future for all my Photography projects", author: "Andrew Jones", image: "/Images/clients/creator-07.webp", detail: "Creator collaboration" },
-                    { quote: "Great work by Faris — communication and delivery on point.", author: "AvA Live", image: "/Images/clients/creator-08.webp", detail: "Entertainment / live" },
+                    { quote: "Great work by Faris, communication and delivery on point.", author: "AvA Live", image: "/Images/clients/creator-08.webp", detail: "Entertainment / live" },
                   ].map((review) => (
                     <article className="testimonial-card" key={`${copy}-${review.author}`}>
                       <span className="testimonial-quote-mark" aria-hidden="true">“</span>
@@ -445,12 +446,12 @@ export default function Home() {
           </div>
           <div className="divide-y divide-white/10 border-y border-white/10">
             {[
-              { q: "Is the first thumbnail really free?", a: "Yes. The first thumbnail is free, with no payment or commitment required. Get in touch with your channel and video idea so we can discuss the best approach." },
-              { q: "What do you need from me to get started?", a: "A link to your channel, the video idea or title, and any reference images you like are a great starting point. If you have no references yet, I can help shape the visual direction." },
-              { q: "How long does a thumbnail take?", a: "Typical delivery depends on the concept and the brief. The listed packages include an estimated delivery time; I’ll confirm the timeline before we begin." },
-              { q: "Can you match my channel’s existing style?", a: "Absolutely. Share a few examples from your channel and I’ll use them to understand your visual identity while designing a thumbnail tailored to the specific video." },
-              { q: "Do you offer recurring work for regular uploads?", a: "Yes. You can choose a multi-thumbnail package or message me to discuss a recurring arrangement that fits your upload schedule." },
-              { q: "Can you guarantee a higher CTR?", a: "No designer can honestly guarantee a specific CTR. I focus on clear visual hierarchy, strong concepts, and thumbnails tailored to your audience — factors that can support better packaging, alongside your title and video." },
+              { q: "Is the first thumbnail really free?", a: "Yes! Your first thumbnail is completely free. I offer this to all new clients so they can experience the quality of my work before committing to a long-term collaboration. After your first thumbnail is completed, if you decide to continue working with me, you can view my packages and pricing to explore the available options." },
+              { q: "How long does it typically take to create one YouTube thumbnail?", a: "Typically, we can have one YouTube thumbnail ready within a few hours, but we can discuss faster delivery options if needed." },
+              { q: "How can I ensure that the thumbnails reflect my content and branding?", a: "When placing your order, provide information about your content and branding. We work diligently to ensure that the thumbnails align with your unique message." },
+              { q: "Can I request changes after you deliver the thumbnail?", a: "Yes, we offer unlimited revisions to ensure you are completely satisfied. Your satisfaction with the thumbnails is our priority." },
+              { q: "What if I'm not sure which package to choose?", a: "If you're unsure, feel free to contact us. We're here to help you select the package that best suits your needs." },
+              { q: "How do I contact you and start working together?", a: "You can contact me via WhatsApp, email, or Fiverr." },
             ].map((item) => (
               <details key={item.q} className="group py-5">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-neutral-100 marker:hidden sm:text-base"><span>{item.q}</span><span className="faq-plus grid h-8 w-8 shrink-0 place-items-center rounded-full border border-white/10 text-lg text-[#78aaff] transition group-open:rotate-45">+</span></summary>
