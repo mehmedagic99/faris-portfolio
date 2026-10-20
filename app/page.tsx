@@ -566,7 +566,7 @@ export default function Home() {
                 <span className="min-w-0 flex-1"><span className="block font-semibold">Email me</span><span className="mt-1 block truncate text-xs text-neutral-400">faris.mehmedagic99@gmail.com</span></span>
                 <span className="contact-external" aria-hidden="true">↗</span>
               </a>
-              <a href="https://www.fiverr.com/sellers/mehmedagic99" target="_blank" rel="noopener noreferrer" className="contact-method group flex items-center gap-4 rounded-xl border border-neutral-800 px-4 py-4 transition hover:border-[#3B82F6] hover:bg-[#3B82F6]/10">
+              <a href="https://www.fiverr.com/mehmedagic99" target="_blank" rel="noopener noreferrer" className="contact-method group flex items-center gap-4 rounded-xl border border-neutral-800 px-4 py-4 transition hover:border-[#3B82F6] hover:bg-[#3B82F6]/10">
                 <span className="contact-icon contact-icon-fiverr" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.6 4.2c-2.6 0-4.3 1.5-4.3 4.3v1.2H7.8v3.4h2.5v6.7h3.8v-6.7h3.2V9.7h-3.2V8.8c0-.9.4-1.3 1.3-1.3h1.9V4.3c-.8-.1-1.7-.1-2.7-.1Z"/></svg></span>
                 <span className="min-w-0 flex-1"><span className="block font-semibold">Fiverr</span><span className="mt-1 block truncate text-xs text-neutral-400">fiverr.com/sellers/mehmedagic99</span></span><span className="contact-external" aria-hidden="true">↗</span>
               </a>
