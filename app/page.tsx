@@ -519,7 +519,7 @@ export default function Home() {
 </a>
         </div>
         <div className="mx-auto flex max-w-7xl justify-between px-6 py-6 text-xs text-neutral-600 md:px-10">
-          <span>© {new Date().getFullYear()} Faris</span>
+          <span>© 2026 Faris</span>
           <span>Designed with intention.</span>
         </div>
       </footer>
